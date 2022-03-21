@@ -27,7 +27,7 @@ Give a ⭐️ if you like this project!
 
 ## Acknowledgments
 
-- I was following [this instructions](https://github.com/microverseinc/curriculum-databases/blob/main/db-structure/vet_clinic_create_tables.md)
+- I was following [this guidelines](https://github.com/microverseinc/curriculum-databases/blob/main/db-structure/vet_clinic_create_tables.md)
 
 ## 📝 License
 
