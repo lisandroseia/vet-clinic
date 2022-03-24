@@ -52,9 +52,7 @@ ALTER TABLE
 ADD
     CONSTRAINT owner_key FOREIGN KEY (owner_id) REFERENCES owners(id);
 
-
 /* day 4 */
-
 CREATE TABLE vets(
     id INT GENERATED ALWAYS AS IDENTITY,
     name VARCHAR(100),
@@ -80,3 +78,4 @@ CREATE TABLE visits(
     visit_date DATE,
     PRIMARY KEY(id, vets_id, animals_id)
 );
+
