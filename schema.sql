@@ -51,3 +51,31 @@ ALTER TABLE
     animals
 ADD
     CONSTRAINT owner_key FOREIGN KEY (owner_id) REFERENCES owners(id);
+
+/* day 4 */
+CREATE TABLE vets(
+    id INT GENERATED ALWAYS AS IDENTITY,
+    name VARCHAR(100),
+    age INT,
+    date_of_graduation DATE,
+    PRIMARY KEY(id)
+);
+
+CREATE TABLE specializations(
+    species_id INT NOT NULL,
+    vets_id INT NOT NULL,
+    FOREIGN KEY (species_id) REFERENCES species(id) ON UPDATE CASCADE,
+    FOREIGN KEY (vets_id) REFERENCES vets(id) ON UPDATE CASCADE,
+    PRIMARY KEY(species_id, vets_id)
+);
+
+CREATE TABLE visits(
+    id INT GENERATED ALWAYS AS IDENTITY,
+    animals_id INT,
+    vets_id INT,
+    FOREIGN KEY (animals_id) REFERENCES animals(id) ON UPDATE CASCADE,
+    FOREIGN KEY (vets_id) REFERENCES vets(id) ON UPDATE CASCADE,
+    visit_date DATE,
+    PRIMARY KEY(id, vets_id, animals_id)
+);
+
