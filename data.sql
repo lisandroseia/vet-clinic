@@ -232,10 +232,38 @@ values
 --  7 | Squirtle
 --  9 | Boarmon
 --  8 | Angemon
-
 -- id |       name       
 ----+------------------
 --  1 | William Tatcher
 --  2 | Maisy Smith
 --  3 | Stephanie Mendez
 --  4 | Jack Harkness
+/* milestone 5 */
+
+-- This will add 3.594.280 visits considering you have 10 animals, 4 vets, and it will use around ~87.000 timestamps (~4min approx.)
+INSERT INTO
+    visits (animals_id, vets_id, visit_date)
+SELECT
+    *
+FROM
+    (
+        SELECT
+            id
+        FROM
+            animals
+    ) animals_id,
+    (
+        SELECT
+            id
+        FROM
+            vets
+    ) vets_id,
+    generate_series('1980-01-01' :: timestamp, '2021-01-01', '4 hours') visit_timestamp;
+
+-- This will add 2.500.000 owners with full_name = 'Owner <X>' and email = 'owner_<X>@email.com' (~2min approx.)
+insert into
+    owners (full_name, email)
+select
+    'Owner ' || generate_series(1, 2500000),
+    'owner_' || generate_series(1, 2500000) || '@mail.com';
+
