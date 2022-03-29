@@ -79,3 +79,13 @@ CREATE TABLE visits(
     PRIMARY KEY(id, vets_id, animals_id)
 );
 
+/* milestone 5 */
+ALTER TABLE
+    owners
+ADD
+    COLUMN email VARCHAR(120);
+
+
+CREATE INDEX animals_id_asc ON visits(animals_id ASC);
+CREATE INDEX vets_id_asc ON visits(vets_id DESC);
+CREATE INDEX owners_email_asc ON owners(email ASC);
